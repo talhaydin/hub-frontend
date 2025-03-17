@@ -1,6 +1,23 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 
+// Import images from src/assets/images
+import phone1 from './assets/images/phone1.svg';
+import phone2group from './assets/images/phone2group.svg';
+import phoneframe3 from './assets/images/phoneframe3.svg';
+import phoneframe4 from './assets/images/phoneframe4.svg';
+import emptyphoneframe from './assets/images/emptyphoneframe.svg';
+import leftbar from './assets/images/leftbar.svg';
+import rightbar from './assets/images/rightbar.svg';
+import pdf from './assets/images/pdf.svg';
+import jpg from './assets/images/jpg.svg';
+import txt from './assets/images/txt.svg';
+import paper from './assets/images/paper.svg';
+import doscanner from './assets/images/doscanner.svg';
+import signnstamp from './assets/images/signnstamp.svg';
+import batchscan from './assets/images/batchscan.svg';
+import advanced from './assets/images/advanced.svg';
+
 export function App() {
   const [step, setStep] = useState<string>();
   const [showOtherAnimations, setShowOtherAnimations] =
@@ -15,8 +32,6 @@ export function App() {
     setStep(step);
     localStorage.setItem('laststep', step);
   };
-
-  // function for delaying other animations until phone animation ends
 
   useEffect(() => {
     const phoneAnimationDuration = 1500;
@@ -36,7 +51,7 @@ export function App() {
           <>
             <div className="content__left">
               <img
-                src="/assets/phone1.svg"
+                src={phone1}
                 alt="Document Scanning"
                 className="content__left-image slideup"
               />
@@ -56,7 +71,7 @@ export function App() {
           <>
             <div className="content__left">
               <img
-                src="/assets/phone2group.svg"
+                src={phone2group}
                 alt="Document Scanning"
                 className="content__left-image negativemargin slideup"
               />
@@ -72,32 +87,19 @@ export function App() {
             </div>
           </>
         )}
-
         {step === 'BatchScanning' && (
           <>
             <div className="content__left">
               <img
-                src="/assets/emptyphoneframe.svg"
+                src={emptyphoneframe}
                 alt="Document Scanning"
                 className="content__left-image negativemargin slideup"
               />
               {showOtherAnimations && (
                 <>
-                  <img
-                    src="/assets/paper.svg"
-                    alt="Document Scanning"
-                    className="paper"
-                  />
-                  <img
-                    src="/assets/paper.svg"
-                    alt="Document Scanning"
-                    className="paper"
-                  />
-                  <img
-                    src="/assets/paper.svg"
-                    alt="Document Scanning"
-                    className="paper"
-                  />
+                  <img src={paper} alt="Document Scanning" className="paper" />
+                  <img src={paper} alt="Document Scanning" className="paper" />
+                  <img src={paper} alt="Document Scanning" className="paper" />
                 </>
               )}
             </div>
@@ -112,27 +114,26 @@ export function App() {
             </div>
           </>
         )}
-
         {step === 'AdvancedFilters' && (
           <>
             <div className="content__left">
               {showOtherAnimations && (
                 <img
-                  src="/assets/leftbar.svg"
+                  src={leftbar}
                   alt="Document Scanning"
-                  className="content__left-image opacityshift negativemargin "
+                  className="content__left-image opacityshift negativemargin"
                 />
               )}
               <img
-                src="/assets/phoneframe3.svg"
+                src={phoneframe3}
                 alt="Document Scanning"
                 className="content__left-image negativemargin slideup"
               />
               {showOtherAnimations && (
                 <img
-                  src="/assets/rightbar.svg"
+                  src={rightbar}
                   alt="Document Scanning"
-                  className="content__left-image opacityshift negativemargin "
+                  className="content__left-image opacityshift negativemargin"
                 />
               )}
             </div>
@@ -148,28 +149,27 @@ export function App() {
             </div>
           </>
         )}
-
         {step === 'ExportAndShare' && (
           <>
             <div className="content__left">
               <img
-                src="/assets/phoneframe4.svg"
+                src={phoneframe4}
                 alt="Document Scanning"
                 className="content__left-image negativemargin slideup"
               />
               <img
-                src="/assets/pdf.svg"
-                alt="Document Scanning"
+                src={pdf}
+                alt="PDF"
                 className="content__left-image negativemargin slideup"
               />
               <img
-                src="/assets/jpg.svg"
-                alt="Document Scanning"
+                src={jpg}
+                alt="JPG"
                 className="content__left-image negativemargin slideup"
               />
               <img
-                src="/assets/txt.svg"
-                alt="Document Scanning"
+                src={txt}
+                alt="TXT"
                 className="content__left-image negativemargin slideup"
               />
             </div>
@@ -179,7 +179,7 @@ export function App() {
                 All-Round Conversion
               </div>
               <div className="content__right-description">
-                Export your scans as PDF,JPG,ZIP,TXT and Word.
+                Export your scans as PDF, JPG, ZIP, TXT, and Word.
               </div>
               <button className="content__right-button">Learn More</button>
             </div>
@@ -197,9 +197,9 @@ export function App() {
             className={`footer__box-icon ${step === 'DocumentScanner' ? 'filled' : ''}`}
           >
             <img
-              src="/assets/doscanner.svg"
+              src={doscanner}
               alt="Document Scanner"
-              className={`${step === 'DocumentScanner' && 'filled'}`}
+              className={step === 'DocumentScanner' ? 'filled' : ''}
             />
           </div>
           <div>Document & Scanner</div>
@@ -210,9 +210,9 @@ export function App() {
             className={`footer__box-icon ${step === 'SignAndStamp' ? 'filled' : ''}`}
           >
             <img
-              src="/assets/signnstamp.svg"
+              src={signnstamp}
               alt="Sign and Stamp"
-              className={`${step === 'SignAndStamp' && 'filled'}`}
+              className={step === 'SignAndStamp' ? 'filled' : ''}
             />
           </div>
           <div>Sign & Stamp</div>
@@ -226,9 +226,9 @@ export function App() {
             className={`footer__box-icon ${step === 'BatchScanning' ? 'filled' : ''}`}
           >
             <img
-              src="/assets/batchscan.svg"
+              src={batchscan}
               alt="Batch Scanning"
-              className={`${step === 'BatchScanning' && 'filled'}`}
+              className={step === 'BatchScanning' ? 'filled' : ''}
             />
           </div>
           <div>Batch Scanning</div>
@@ -242,9 +242,9 @@ export function App() {
             className={`footer__box-icon ${step === 'AdvancedFilters' ? 'filled' : ''}`}
           >
             <img
-              src="/assets/advanced.svg"
+              src={advanced}
               alt="Advanced Filters"
-              className={`${step === 'AdvancedFilters' && 'filled'}`}
+              className={step === 'AdvancedFilters' ? 'filled' : ''}
             />
           </div>
           <div>Advanced Filters</div>
@@ -258,16 +258,14 @@ export function App() {
             className={`footer__box-icon ${step === 'ExportAndShare' ? 'filled' : ''}`}
           >
             <img
-              src="/assets/doscanner.svg"
+              src={doscanner}
               alt="Export and Share"
-              className={`${step === 'ExportAndShare' && 'filled'}`}
+              className={step === 'ExportAndShare' ? 'filled' : ''}
             />
           </div>
           <div>Export & Share</div>
         </div>
       </footer>
-
-      {/* End of Footer */}
     </>
   );
 }
