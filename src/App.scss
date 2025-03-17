@@ -1,0 +1,328 @@
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://fonts.cdn.apple.com/sf-pro/SF-Pro-Display-Regular.otf')
+    format('opentype');
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'SF Pro Display', sans-serif !important;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* animations */
+
+@keyframes slideUpFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes opacityShift {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes stackPapers {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromBottomLeft {
+  0% {
+    transform: translate(-100%, 100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromBottomRight {
+  0% {
+    transform: translate(100%, 100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fillCircle {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+  }
+  100% {
+    clip-path: circle(75% at 50% 50%);
+  }
+}
+
+.slideup {
+  animation: slideUpFromBottom 1s ease-out forwards;
+}
+
+.opacityshift {
+  animation: opacityShift 1s ease-out forwards;
+}
+
+/* animations end */
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 0px;
+
+  @media (max-width: 800px) {
+    flex-direction: column-reverse;
+  }
+
+  &__left {
+    width: 610px;
+    height: 560px;
+    margin-left: 68px;
+
+    @media (max-width: 800px) {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+
+    &-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+    .negativemargin {
+      margin-bottom: -120px !important;
+    }
+  }
+
+  &__right {
+    width: 556px;
+    height: 235px;
+    margin-right: 15%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-self: end;
+    gap: 16px;
+
+    @media (max-width: 800px) {
+      width: 100% !important;
+      height: 100% !important;
+      margin-right: 2%;
+      margin-left: 2%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-title {
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 100%;
+      letter-spacing: 2px;
+      text-align: right;
+      text-transform: uppercase;
+      color: #0381ff;
+    }
+
+    &-subtitle {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: 0px;
+      text-align: right;
+      color: #0b122a;
+    }
+
+    &-description {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: 0.8px;
+      text-align: right;
+    }
+
+    &-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 135px;
+      height: 54px;
+      border: 0.5px solid #00000029;
+      background-color: white;
+      border-radius: 2px;
+      padding: 15px 20px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 100%;
+      gap: 24px;
+      cursor: pointer;
+    }
+  }
+}
+
+.footer {
+  height: 124px;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: auto; // Enable horizontal scrolling
+  overflow-y: hidden; // Disable vertical scrolling
+  white-space: nowrap; // Prevent wrapping of footer boxes
+  -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+
+  &__box {
+    height: 124px;
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0px;
+    cursor: pointer;
+
+    &:not(:first-child)::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 124px;
+      width: 1px;
+      background-color: #ddd;
+    }
+
+    &:hover {
+      background-color: rgba(3, 129, 255, 0.03);
+    }
+
+    &-icon {
+      width: 56px;
+      height: 56px;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 800px) {
+        margin-left: 10px;
+      }
+
+      &.filled {
+        border-color: #0381ff;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: #0381ff;
+          border-radius: 50%;
+          clip-path: circle(0% at 50% 50%);
+          animation: fillCircle 1s ease-out forwards;
+        }
+      }
+
+      .filled {
+        filter: invert(40%) sepia(85%) saturate(3804%) hue-rotate(196deg)
+          brightness(101%) contrast(109%);
+      }
+    }
+  }
+}
+
+img[src*='pdf.svg'] {
+  position: absolute;
+  left: 14%;
+  bottom: 20%;
+  opacity: 0;
+  animation: slideFromBottomLeft 0.2s ease-out forwards;
+  animation-delay: 1.5s;
+  z-index: 2;
+}
+
+img[src*='jpg.svg'] {
+  position: absolute;
+  left: 38%;
+  bottom: 20%;
+  opacity: 0;
+  animation: slideUpFromBottom 0.2s ease-out forwards;
+  animation-delay: 1.6s;
+  z-index: 2;
+}
+
+img[src*='txt.svg'] {
+  position: absolute;
+  right: 14%;
+  bottom: 20%;
+  opacity: 0;
+  animation: slideFromBottomRight 0.2s ease-out forwards;
+  animation-delay: 1.7s;
+  z-index: 2;
+}
+
+.paper {
+  position: absolute;
+  width: 50%;
+  height: auto;
+  max-height: 70%;
+  object-fit: cover;
+  animation: stackPapers 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(100%);
+  top: 40%;
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+    z-index: 1;
+    top: 40%;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.3s;
+    z-index: 2;
+    top: 43%;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.6s;
+    z-index: 3;
+    top: 46%;
+  }
+}
