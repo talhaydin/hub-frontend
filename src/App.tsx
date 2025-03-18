@@ -15,6 +15,8 @@ export function App() {
     setStep(lastStep && lastStep !== undefined ? lastStep : 'DocumentScanner');
   }, []);
 
+  // the function below fires off other animations after the phone frame behind loads
+
   useEffect(() => {
     const phoneAnimationDuration = 1500;
     const timer = setTimeout(() => {
