@@ -1,4 +1,4 @@
-/* global */
+/* Global */
 
 @font-face {
   font-family: 'SF Pro Display';
@@ -19,7 +19,7 @@ body {
   flex-direction: column;
 }
 
-/* animations */
+/* Animations */
 
 @keyframes slideUpFromBottom {
   0% {
@@ -91,7 +91,7 @@ body {
   animation: opacityShift 1s ease-out forwards;
 }
 
-/* scss with BEM naming */
+/* SCSS with BEM naming */
 
 .content {
   flex: 1;
@@ -100,7 +100,7 @@ body {
   align-items: flex-end;
   padding-bottom: 0px;
 
-  overflow-y: visible; /* Enable vertical scrolling if content overflows */
+  overflow-y: visible;
 
   @media (max-width: 800px) {
     flex-direction: column-reverse;
@@ -293,7 +293,7 @@ body {
   }
 }
 
-/* spesific targets outside scss scope */
+/* Spesific targets outside SCSS scope */
 
 img[src*='pdf.svg'] {
   position: absolute;
@@ -365,3 +365,5 @@ img[src*='txt.svg'] {
     top: 46%;
   }
 }
+
+// If you've read this throughout, teşekkürler!"
