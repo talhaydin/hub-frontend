@@ -1,3 +1,5 @@
+/* global */
+
 @font-face {
   font-family: 'SF Pro Display';
   src: url('https://fonts.cdn.apple.com/sf-pro/SF-Pro-Display-Regular.otf')
@@ -89,7 +91,7 @@ body {
   animation: opacityShift 1s ease-out forwards;
 }
 
-/* animations end */
+/* scss with BEM naming */
 
 .content {
   flex: 1;
@@ -97,6 +99,8 @@ body {
   justify-content: space-between;
   align-items: flex-end;
   padding-bottom: 0px;
+
+  overflow-y: visible; /* Enable vertical scrolling if content overflows */
 
   @media (max-width: 800px) {
     flex-direction: column-reverse;
@@ -125,6 +129,9 @@ body {
     }
     .negativemargin {
       margin-bottom: -120px !important;
+      @media (max-width: 800px) {
+        margin-bottom: -20px !important;
+      }
     }
   }
 
@@ -213,10 +220,11 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  overflow-x: auto; // Enable horizontal scrolling
-  overflow-y: hidden; // Disable vertical scrolling
-  white-space: nowrap; // Prevent wrapping of footer boxes
-  -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  flex-shrink: 0;
 
   &__box {
     height: 124px;
@@ -232,7 +240,7 @@ body {
     cursor: pointer;
 
     @media (max-width: 800px) {
-      padding: 10px;
+      padding: 0px 10px;
     }
 
     &:not(:first-child)::before {
@@ -285,6 +293,8 @@ body {
   }
 }
 
+/* spesific targets outside scss scope */
+
 img[src*='pdf.svg'] {
   position: absolute;
   left: 14%;
@@ -293,6 +303,10 @@ img[src*='pdf.svg'] {
   animation: slideFromBottomLeft 0.2s ease-out forwards;
   animation-delay: 1.5s;
   z-index: 2;
+  @media (max-width: 800px) {
+    left: 12%;
+    bottom: 4%;
+  }
 }
 
 img[src*='jpg.svg'] {
@@ -303,6 +317,10 @@ img[src*='jpg.svg'] {
   animation: slideUpFromBottom 0.2s ease-out forwards;
   animation-delay: 1.6s;
   z-index: 2;
+  @media (max-width: 800px) {
+    left: 34%;
+    bottom: 6%;
+  }
 }
 
 img[src*='txt.svg'] {
@@ -313,6 +331,11 @@ img[src*='txt.svg'] {
   animation: slideFromBottomRight 0.2s ease-out forwards;
   animation-delay: 1.7s;
   z-index: 2;
+
+  @media (max-width: 800px) {
+    right: 8%;
+    bottom: 2%;
+  }
 }
 
 .paper {
